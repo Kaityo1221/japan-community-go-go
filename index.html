@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>日本コミュニティイベントガイド β</title>
+    <meta
+      name="description"
+      content="日本向けの非公式コミュニティイベント案内Webアプリ。Start Here、当日の流れ、チェックリスト、地域別グループ、ビンゴをまとめています。"
+    />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-mark">JP</div>
+        <div>
+          <p class="eyebrow">Unofficial Community Guide</p>
+          <h1>日本コミュニティイベントガイド β</h1>
+        </div>
+      </div>
+      <button id="themeToggle" class="ghost-button" type="button">🌙</button>
+    </header>
+
+    <main>
+      <section class="hero panel">
+        <div class="hero-copy">
+          <p class="eyebrow accent">START HERE</p>
+          <h2>参加者が迷わない。初参加者が不安にならない。</h2>
+          <p>
+            集合場所、当日の流れ、持ち物、チェックリスト、地域別グループ、ミニゲームをひとつにまとめた日本向けの非公式イベント案内ポータルです。
+          </p>
+          <div class="hero-actions">
+            <a class="primary-button" href="#start">まず見る</a>
+            <a class="secondary-button" href="#bingo">ビンゴを開く</a>
+          </div>
+        </div>
+        <div class="event-card">
+          <p class="label">TODAY'S EVENT</p>
+          <h3 id="eventTitle">GO Fest Global 2026 日本コミュニティガイド</h3>
+          <dl>
+            <div><dt>日程</dt><dd id="eventDate">2026年7月11日・12日</dd></div>
+            <div><dt>時間</dt><dd id="eventTime">10:00〜19:00</dd></div>
+            <div><dt>場所</dt><dd id="eventPlace">各地域のCampfireイベント</dd></div>
+          </dl>
+          <p class="mini-note">※このページは非公式の参加者向け案内です。</p>
+        </div>
+      </section>
+
+      <nav class="tab-nav" aria-label="ページ内ナビゲーション">
+        <a href="#start">まず見る</a>
+        <a href="#timeline">流れ</a>
+        <a href="#checklist">チェック</a>
+        <a href="#groups">グループ</a>
+        <a href="#bingo">ビンゴ</a>
+        <a href="#staff">運営</a>
+      </nav>
+
+      <section id="start" class="section-grid">
+        <article class="panel span-2">
+          <p class="eyebrow accent">FIRST VIEW</p>
+          <h2>まずこれだけ見てください</h2>
+          <div class="quick-list" id="quickList"></div>
+        </article>
+        <article class="panel warning-panel">
+          <p class="eyebrow">SAFETY</p>
+          <h2>安全・マナー</h2>
+          <ul class="simple-list">
+            <li>歩道を塞がず、立ち止まる時は端へ。</li>
+            <li>暑い時間は無理せず屋内・日陰へ。</li>
+            <li>途中離脱OK。離れる時は一言連絡。</li>
+            <li>写真撮影は周囲と写り込みに配慮。</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="timeline" class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow accent">TIMELINE</p>
+            <h2>当日の流れ</h2>
+          </div>
+          <button class="ghost-button" id="copyTimeline" type="button">コピー</button>
+        </div>
+        <div class="timeline" id="timelineList"></div>
+      </section>
+
+      <section id="strategy" class="section-grid">
+        <article class="panel span-2">
+          <p class="eyebrow accent">PLAY GUIDE</p>
+          <h2>今日の攻略カード</h2>
+          <div class="strategy-grid" id="strategyCards"></div>
+        </article>
+        <article class="panel">
+          <p class="eyebrow">FOR FIRST TIMERS</p>
+          <h2>初参加者向け</h2>
+          <p>
+            ひとり参加でも大丈夫です。集合時に近くのスタッフへ声をかけてください。前後でフォローしながら動けるようにします。
+          </p>
+        </article>
+      </section>
+
+      <section id="checklist" class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow accent">CHECKLIST</p>
+            <h2>参加前チェックリスト</h2>
+          </div>
+          <button id="resetChecks" class="ghost-button" type="button">リセット</button>
+        </div>
+        <div class="checklist-columns">
+          <div>
+            <h3>前日</h3>
+            <div id="beforeChecklist" class="checklist"></div>
+          </div>
+          <div>
+            <h3>当日</h3>
+            <div id="todayChecklist" class="checklist"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="groups" class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow accent">COMMUNITY</p>
+            <h2>地域別グループ案内</h2>
+          </div>
+          <select id="areaFilter" aria-label="地域フィルター">
+            <option value="all">すべて</option>
+          </select>
+        </div>
+        <div class="group-grid" id="groupGrid"></div>
+      </section>
+
+      <section id="bingo" class="panel bingo-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow accent">MINI APP</p>
+            <h2>ミートアップビンゴ</h2>
+          </div>
+          <div class="button-row">
+            <button id="newBingo" class="secondary-button" type="button">新しいカード</button>
+            <button id="resetBingo" class="ghost-button" type="button">マーク解除</button>
+          </div>
+        </div>
+        <p class="mini-note">タップでマーク。スクショして共有しやすいように作っています。</p>
+        <div id="bingoBoard" class="bingo-board" aria-label="ミートアップビンゴ"></div>
+      </section>
+
+      <section id="staff" class="section-grid">
+        <article class="panel span-2">
+          <p class="eyebrow accent">STAFF NOTE</p>
+          <h2>運営向けメモ</h2>
+          <div class="staff-grid" id="staffNotes"></div>
+        </article>
+        <article class="panel">
+          <p class="eyebrow">EXPORT</p>
+          <h2>共有文テンプレ</h2>
+          <p id="shareText" class="share-text"></p>
+          <button id="copyShare" class="primary-button" type="button">共有文をコピー</button>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        非公式コミュニティガイドです。各ゲーム・サービス・商標の権利はそれぞれの権利者に帰属します。
+      </p>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
