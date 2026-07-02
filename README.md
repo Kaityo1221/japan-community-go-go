@@ -1,0 +1,1 @@
+# japan-community-go-go
