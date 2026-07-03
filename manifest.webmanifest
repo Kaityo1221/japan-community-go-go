@@ -1,9 +1,0 @@
-{
-  "name": "日本コミュニティイベントガイド β",
-  "short_name": "イベントガイド",
-  "start_url": "./index.html",
-  "display": "standalone",
-  "background_color": "#eef4fb",
-  "theme_color": "#2563eb",
-  "icons": []
-}
