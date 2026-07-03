@@ -1,176 +1,270 @@
 <!doctype html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>日本コミュニティイベントガイド β</title>
-    <meta
-      name="description"
-      content="日本向けの非公式コミュニティイベント案内Webアプリ。Start Here、当日の流れ、チェックリスト、地域別グループ、ビンゴをまとめています。"
-    />
-    <link rel="manifest" href="manifest.webmanifest" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="brand">
-        <div class="brand-mark">JP</div>
-        <div>
-          <p class="eyebrow">Unofficial Community Guide</p>
-          <h1>日本コミュニティイベントガイド β</h1>
-        </div>
-      </div>
-      <button id="themeToggle" class="ghost-button" type="button">🌙</button>
-    </header>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GO FEST JAPAN 2026 — 非公式コミュニティガイド</title>
+  <meta name="description" content="GO Fest Global向けの日本語コミュニティガイド・デモ。参加案内、攻略、チェックリスト、グループ一覧、ビンゴ、フォトハント、壁紙生成を収録。" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="side-panel" aria-label="サイドメニュー">
+      <a class="brand" href="#top" aria-label="トップへ戻る">
+        <span class="brand-mark">JP</span>
+        <span>
+          <strong>GO FEST JAPAN</strong>
+          <small>Unofficial Community Guide</small>
+        </span>
+      </a>
 
-    <main>
-      <section class="hero panel">
-        <div class="hero-copy">
-          <p class="eyebrow accent">START HERE</p>
-          <h2>参加者が迷わない。初参加者が不安にならない。</h2>
-          <p>
-            集合場所、当日の流れ、持ち物、チェックリスト、地域別グループ、ミニゲームをひとつにまとめた日本向けの非公式イベント案内ポータルです。
-          </p>
-          <div class="hero-actions">
-            <a class="primary-button" href="#start">まず見る</a>
-            <a class="secondary-button" href="#bingo">ビンゴを開く</a>
-          </div>
-        </div>
-        <div class="event-card">
-          <p class="label">TODAY'S EVENT</p>
-          <h3 id="eventTitle">GO Fest Global 2026 日本コミュニティガイド</h3>
-          <dl>
-            <div><dt>日程</dt><dd id="eventDate">2026年7月11日・12日</dd></div>
-            <div><dt>時間</dt><dd id="eventTime">10:00〜19:00</dd></div>
-            <div><dt>場所</dt><dd id="eventPlace">各地域のCampfireイベント</dd></div>
-          </dl>
-          <p class="mini-note">※このページは非公式の参加者向け案内です。</p>
-        </div>
-      </section>
-
-      <nav class="tab-nav" aria-label="ページ内ナビゲーション">
+      <nav class="side-nav" aria-label="メインナビゲーション">
         <a href="#start">まず見る</a>
-        <a href="#timeline">流れ</a>
-        <a href="#checklist">チェック</a>
-        <a href="#groups">グループ</a>
-        <a href="#bingo">ビンゴ</a>
-        <a href="#staff">運営</a>
+        <a href="#raid">レイド攻略</a>
+        <a href="#habitat">時間帯別</a>
+        <a href="#groups">CAグループ</a>
+        <a href="#checklist">チェックリスト</a>
+        <a href="#nearby">周辺情報</a>
+        <a href="#apps">ミニアプリ</a>
+        <a href="#staff">運営向け</a>
       </nav>
 
-      <section id="start" class="section-grid">
-        <article class="panel span-2">
-          <p class="eyebrow accent">FIRST VIEW</p>
-          <h2>まずこれだけ見てください</h2>
-          <div class="quick-list" id="quickList"></div>
-        </article>
-        <article class="panel warning-panel">
-          <p class="eyebrow">SAFETY</p>
-          <h2>安全・マナー</h2>
-          <ul class="simple-list">
-            <li>歩道を塞がず、立ち止まる時は端へ。</li>
-            <li>暑い時間は無理せず屋内・日陰へ。</li>
-            <li>途中離脱OK。離れる時は一言連絡。</li>
-            <li>写真撮影は周囲と写り込みに配慮。</li>
-          </ul>
-        </article>
+      <section class="settings-card" aria-label="表示設定">
+        <p class="eyebrow">Settings</p>
+        <h2>表示設定</h2>
+        <div class="segmented" role="group" aria-label="外観切替">
+          <button type="button" data-theme="dark">Dark</button>
+          <button type="button" data-theme="light">Light</button>
+        </div>
+        <div class="text-size" role="group" aria-label="文字サイズ切替">
+          <button type="button" data-size="normal">A</button>
+          <button type="button" data-size="large">A</button>
+          <button type="button" data-size="xlarge">A</button>
+        </div>
       </section>
 
-      <section id="timeline" class="panel">
+      <p class="legal-mini">非公式デモ。Niantic、株式会社ポケモン、The Pokémon Companyとは提携していません。</p>
+    </aside>
+
+    <main id="top">
+      <section class="hero panel">
+        <div class="hero-copy">
+          <p class="pill">SAT 11 / SUN 12 · 10:00–19:00</p>
+          <h1>GO Fest Globalを、<br />日本のコミュニティで遊び尽くす。</h1>
+          <p class="lead">集合場所、当日の流れ、攻略、休憩、安全導線、CAグループ案内、ミニゲームまで。参加者が迷わないための日本語版コミュニティガイド・フルデモです。</p>
+          <div class="hero-actions">
+            <a class="primary-btn" href="#start">まず見る</a>
+            <a class="secondary-btn" href="#apps">ミニアプリへ</a>
+          </div>
+        </div>
+        <div class="hero-card" aria-label="イベント概要">
+          <span class="orb"></span>
+          <p class="eyebrow">Weekend Plan</p>
+          <h2>土曜：各地域ミートアップ<br />日曜：大型コミュニティデー</h2>
+          <dl class="event-facts">
+            <div><dt>開催日</dt><dd>2026年7月11日・12日</dd></div>
+            <div><dt>時間</dt><dd>10:00〜19:00</dd></div>
+            <div><dt>対象</dt><dd>初参加・遠征・親子・復帰勢歓迎</dd></div>
+            <div><dt>参加方法</dt><dd>Campfireで地域イベントにチェックイン</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="tabs-panel panel" aria-label="日別タブ">
+        <div class="tab-buttons" role="tablist">
+          <button class="tab-button active" data-day="saturday" role="tab" aria-selected="true">土曜 7/11</button>
+          <button class="tab-button" data-day="sunday" role="tab" aria-selected="false">日曜 7/12</button>
+        </div>
+        <div id="daySummary" class="day-summary"></div>
+      </section>
+
+      <section id="start" class="panel section-block">
         <div class="section-heading">
-          <div>
-            <p class="eyebrow accent">TIMELINE</p>
-            <h2>当日の流れ</h2>
-          </div>
-          <button class="ghost-button" id="copyTimeline" type="button">コピー</button>
+          <p class="eyebrow">Start Here</p>
+          <h2>まず見る</h2>
+          <p>参加者に最初に見せるページ。長文を読まなくても、集合・準備・安全が分かります。</p>
         </div>
-        <div class="timeline" id="timelineList"></div>
+        <div id="quickStartGrid" class="info-grid"></div>
       </section>
 
-      <section id="strategy" class="section-grid">
-        <article class="panel span-2">
-          <p class="eyebrow accent">PLAY GUIDE</p>
-          <h2>今日の攻略カード</h2>
-          <div class="strategy-grid" id="strategyCards"></div>
+      <section id="raid" class="panel section-block">
+        <div class="section-heading">
+          <p class="eyebrow">Raid Guide</p>
+          <h2>レイド攻略</h2>
+          <p>目玉レイド、弱点、100%CP、天候ブーストCP、対策メモをカードで表示します。</p>
+        </div>
+        <div id="raidCards" class="raid-grid"></div>
+      </section>
+
+      <section id="habitat" class="panel section-block">
+        <div class="section-heading">
+          <p class="eyebrow">Habitat Schedule</p>
+          <h2>時間帯別の動き方</h2>
+          <p>10時・13時・16時の切り替わりに合わせ、捕獲・休憩・交換・レイドを整理します。</p>
+        </div>
+        <div id="habitatTimeline" class="timeline"></div>
+      </section>
+
+      <section class="panel section-block">
+        <div class="section-heading">
+          <p class="eyebrow">All-Day Features</p>
+          <h2>一日を通して意識すること</h2>
+          <p>色違い、Party Play、リサーチ、アイテム使用など、見落としやすいポイントを集約。</p>
+        </div>
+        <div id="bonusGrid" class="bonus-grid"></div>
+      </section>
+
+      <section class="panel section-block">
+        <div class="section-heading">
+          <p class="eyebrow">Field Tips</p>
+          <h2>日本向けフィールドTips</h2>
+          <p>猛暑・雨・電波混雑・歩道マナー・休憩など、運営目線の注意点。</p>
+        </div>
+        <div id="tipsGrid" class="tips-grid"></div>
+      </section>
+
+      <section id="groups" class="panel section-block">
+        <div class="section-heading row-heading">
+          <div>
+            <p class="eyebrow">CA Groups</p>
+            <h2>地域別CAグループ</h2>
+            <p>遠征者と初参加者が、自分に合う集合場所を見つけるための一覧。</p>
+          </div>
+          <div id="groupFilters" class="filter-row"></div>
+        </div>
+        <div id="groupCards" class="group-grid"></div>
+      </section>
+
+      <section id="checklist" class="panel section-block">
+        <div class="section-heading">
+          <p class="eyebrow">Prep Checklist</p>
+          <h2>参加前チェックリスト</h2>
+          <p>前日と当日朝にやること。タップでチェックできます。</p>
+        </div>
+        <div id="checklistGrid" class="checklist-grid"></div>
+      </section>
+
+      <section id="nearby" class="panel section-block">
+        <div class="section-heading">
+          <p class="eyebrow">Nearby / Dining / Stay</p>
+          <h2>周辺情報</h2>
+          <p>休憩場所、屋内退避、飲食、ホテルをまとめて、当日の判断を早くします。</p>
+        </div>
+        <div class="nearby-tabs" role="tablist">
+          <button class="nearby-tab active" data-nearby="spots">休憩・退避</button>
+          <button class="nearby-tab" data-nearby="dining">飲食</button>
+          <button class="nearby-tab" data-nearby="stay">宿泊</button>
+        </div>
+        <div id="nearbyList" class="nearby-grid"></div>
+      </section>
+
+      <section id="apps" class="panel section-block apps-section">
+        <div class="section-heading">
+          <p class="eyebrow">Games & Apps</p>
+          <h2>ミニアプリ</h2>
+          <p>海外サイトのアプリ導線を、日本語版デモとして再構成。壁紙、ビンゴ、フォトハントを収録。</p>
+        </div>
+        <div class="app-switcher" role="tablist">
+          <button class="app-tab active" data-app="wallpaper">CP壁紙</button>
+          <button class="app-tab" data-app="bingo">ビンゴ</button>
+          <button class="app-tab" data-app="hunt">フォトハント</button>
+        </div>
+
+        <article id="wallpaperApp" class="mini-app active" aria-label="レイドCP壁紙ジェネレーター">
+          <div class="mini-app-layout">
+            <div>
+              <div class="app-title-row">
+                <div>
+                  <p class="eyebrow">Raid Wallpaper Generator</p>
+                  <h3>レイドCP壁紙ジェネレーター</h3>
+                </div>
+                <span id="selectedCount" class="count-badge">0 / 26</span>
+              </div>
+              <p class="muted">対象ポケモンを選び、通常100%CP / ブースト100%CP入りのスマホ壁紙を生成します。CSV差し替えにも対応。</p>
+              <div class="wallpaper-controls">
+                <input id="pokemonSearch" type="search" placeholder="ポケモン名で検索" />
+                <select id="dayFilter" aria-label="日別フィルター">
+                  <option value="all">全日</option>
+                  <option value="saturday">土曜</option>
+                  <option value="sunday">日曜</option>
+                </select>
+                <label class="file-label">CSV読込<input id="csvInput" type="file" accept=".csv,text/csv" /></label>
+                <button id="clearWallpaper" type="button">選択解除</button>
+              </div>
+              <pre class="csv-sample">Pokemon,Raid Tier,Day,100% CP,WB 100% CP
+ミュウツーX,スーパー,Saturday,2387,2984</pre>
+              <div id="pokemonList" class="pokemon-list"></div>
+            </div>
+            <div class="preview-column">
+              <div class="preview-header">
+                <strong>壁紙プレビュー</strong>
+                <label><input id="lightWallpaper" type="checkbox" /> 明るい背景</label>
+              </div>
+              <canvas id="wallpaperCanvas" width="1290" height="2796" aria-label="壁紙プレビュー"></canvas>
+              <div class="download-row">
+                <button id="generateWallpaper" class="primary-btn" type="button">プレビュー生成</button>
+                <button id="downloadWallpaper" class="secondary-btn" type="button">PNG保存</button>
+              </div>
+            </div>
+          </div>
         </article>
-        <article class="panel">
-          <p class="eyebrow">FOR FIRST TIMERS</p>
-          <h2>初参加者向け</h2>
-          <p>
-            ひとり参加でも大丈夫です。集合時に近くのスタッフへ声をかけてください。前後でフォローしながら動けるようにします。
-          </p>
+
+        <article id="bingoApp" class="mini-app" aria-label="ミートアップビンゴ">
+          <div class="app-title-row">
+            <div>
+              <p class="eyebrow">Meetup Bingo</p>
+              <h3>ミートアップビンゴ</h3>
+            </div>
+            <div class="download-row compact">
+              <button id="newBingo" type="button">新しいカード</button>
+              <button id="resetBingo" type="button">チェック解除</button>
+            </div>
+          </div>
+          <p class="muted">会話と交流を生むためのビンゴ。タップでマーク、スクショして共有できます。</p>
+          <div id="bingoBoard" class="bingo-board"></div>
+        </article>
+
+        <article id="huntApp" class="mini-app" aria-label="フォトハント">
+          <div class="app-title-row">
+            <div>
+              <p class="eyebrow">PokeHunt / Photo Rally</p>
+              <h3>フォトハント</h3>
+            </div>
+            <button id="resetHunt" type="button">進捗リセット</button>
+          </div>
+          <p class="muted">AR写真や街歩きの観察ミッション。地域を歩く理由を作れます。画像は端末内プレビューのみで送信しません。</p>
+          <div id="huntList" class="hunt-grid"></div>
         </article>
       </section>
 
-      <section id="checklist" class="panel">
+      <section id="staff" class="panel section-block">
         <div class="section-heading">
-          <div>
-            <p class="eyebrow accent">CHECKLIST</p>
-            <h2>参加前チェックリスト</h2>
-          </div>
-          <button id="resetChecks" class="ghost-button" type="button">リセット</button>
-        </div>
-        <div class="checklist-columns">
-          <div>
-            <h3>前日</h3>
-            <div id="beforeChecklist" class="checklist"></div>
-          </div>
-          <div>
-            <h3>当日</h3>
-            <div id="todayChecklist" class="checklist"></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="groups" class="panel">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow accent">COMMUNITY</p>
-            <h2>地域別グループ案内</h2>
-          </div>
-          <select id="areaFilter" aria-label="地域フィルター">
-            <option value="all">すべて</option>
-          </select>
-        </div>
-        <div class="group-grid" id="groupGrid"></div>
-      </section>
-
-      <section id="bingo" class="panel bingo-panel">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow accent">MINI APP</p>
-            <h2>ミートアップビンゴ</h2>
-          </div>
-          <div class="button-row">
-            <button id="newBingo" class="secondary-button" type="button">新しいカード</button>
-            <button id="resetBingo" class="ghost-button" type="button">マーク解除</button>
-          </div>
-        </div>
-        <p class="mini-note">タップでマーク。スクショして共有しやすいように作っています。</p>
-        <div id="bingoBoard" class="bingo-board" aria-label="ミートアップビンゴ"></div>
-      </section>
-
-      <section id="staff" class="section-grid">
-        <article class="panel span-2">
-          <p class="eyebrow accent">STAFF NOTE</p>
+          <p class="eyebrow">Staff Notes</p>
           <h2>運営向けメモ</h2>
-          <div class="staff-grid" id="staffNotes"></div>
-        </article>
-        <article class="panel">
-          <p class="eyebrow">EXPORT</p>
-          <h2>共有文テンプレ</h2>
-          <p id="shareText" class="share-text"></p>
-          <button id="copyShare" class="primary-button" type="button">共有文をコピー</button>
-        </article>
+          <p>リョータさんに見せる時、単なる攻略サイトではなく「CA運営支援ツール」として説明しやすい部分。</p>
+        </div>
+        <div class="staff-grid">
+          <article><h3>班分け</h3><p>前・中・後の3人体制、初参加者の位置、途中離脱者の連絡先を事前に決める。</p></article>
+          <article><h3>安全導線</h3><p>暑さ、雨、混雑、歩道、写真撮影、緊急時の集合場所をサイト上で明文化する。</p></article>
+          <article><h3>地域連携</h3><p>CAごとの活動エリア、Campfire、Discordを一覧化し、遠征者を迷わせない。</p></article>
+          <article><h3>イベント後</h3><p>お礼、写真共有、次回案内、アンケート、改善点を同じページに追記できる。</p></article>
+        </div>
+        <div class="share-box">
+          <h3>リョータさんへ見せる時の一言</h3>
+          <textarea id="shareText" readonly>海外のDFW POGOサイトを参考に、日本向けの非公式コミュニティガイドのフルデモを作りました。単なる攻略ページではなく、Start Here、当日導線、CAグループ一覧、チェックリスト、休憩情報、ミニアプリまで含めた「参加者が迷わないWeb案内所」です。日本各地のCA活動にも横展開できる形を想定しています。</textarea>
+          <button id="copyShareText" type="button">文章をコピー</button>
+        </div>
       </section>
+
+      <footer class="footer panel">
+        <h2>Thank You, Japan Trainers</h2>
+        <p>このページは提案用デモです。公式情報は必ずPokémon GOアプリ内および公式サイトで確認してください。</p>
+        <p class="legal">非公式コミュニティガイド。Niantic、株式会社ポケモン、The Pokémon Company、および各施設とは提携・承認関係にありません。商標・名称は各権利者に帰属します。</p>
+      </footer>
     </main>
+  </div>
 
-    <footer class="site-footer">
-      <p>
-        非公式コミュニティガイドです。各ゲーム・サービス・商標の権利はそれぞれの権利者に帰属します。
-      </p>
-    </footer>
-
-    <script src="data.js"></script>
-    <script src="app.js"></script>
-  </body>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
 </html>
